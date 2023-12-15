@@ -1,0 +1,168 @@
+-- Constants
+local MIN_HEALTH = 50
+local DISTANCE_THRESHOLD = 30
+local BALL_DISTANCE_THRESHOLD = 35
+local SPAM_CLICK_THRESHOLD_LOW_PLAYERS = 2
+local SPAM_CLICK_THRESHOLD_HIGH_PLAYERS = 3
+
+-- Services
+local Players = game.Players
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Workspace = game.Workspace
+local task = task
+local wait = wait
+local tick = tick
+local Vector3 = Vector3
+local CFrame = CFrame
+
+-- Functions
+local function getPlayer()
+    return Players.LocalPlayer
+end
+
+local function getPlayerCharacter()
+    local playerChar = getPlayer().Character
+    return playerChar and playerChar:FindFirstChild("HumanoidRootPart")
+end
+
+local function countAlivePlayers()
+    local alivePlayers = Workspace:WaitForChild("Alive", 20):GetChildren()
+    local playerCount = 0
+
+    for _, player in pairs(alivePlayers) do
+        local humanoid = player:FindFirstChild("Humanoid")
+        if humanoid and humanoid.Health > MIN_HEALTH then
+            playerCount = playerCount + 1
+        end
+    end
+
+    return playerCount
+end
+
+local function getClosestPlayer()
+    local alivePlayers = Workspace:WaitForChild("Alive"):GetChildren()
+    local player = getPlayer()
+    local playerRP = getPlayerCharacter()
+
+    local closestPlayer = nil
+    local minDistance = math.huge
+
+    for _, otherPlayer in pairs(alivePlayers) do
+        if otherPlayer.Name ~= player.Name and otherPlayer:FindFirstChild("HumanoidRootPart") then
+            local distance = (otherPlayer.HumanoidRootPart.Position - playerRP.Position).Magnitude
+
+            if distance <= minDistance then
+                minDistance = distance
+                closestPlayer = otherPlayer
+            end
+        end
+    end
+
+    return closestPlayer
+end
+
+local function clickButton()
+    task.spawn(function()
+        local player = getPlayer()
+        local playerFind = Workspace.Alive:FindFirstChild(player.Name)
+
+        if playerFind then
+            local playerCount = countAlivePlayers()
+
+            if playerCount > 1 then
+                local args = {[1] = 1.5, [2] = CFrame.new(-254, 112, -119) * CFrame.Angles(-2, 0, 2), [3] = {["2617721424"] = Vector3.new(-273, -724, -20)}, [4] = {[1] = 910, [2] = 154}}
+                ReplicatedStorage.Remotes.ParryAttempt:FireServer(unpack(args))
+                task.wait()
+            end
+        end
+    end)
+end
+
+local function detectSpam()
+    local balls = Workspace:WaitForChild("Balls", 20)
+    local oldPos = Vector3.new()
+    local oldTick1 = tick()
+    local oldBall = balls
+    local targetPlayer = ""
+    local spamNum = 0
+    local ballSpeed = 0
+    local ballDistance = 0
+
+    task.spawn(function()
+        local oldTick = tick()
+        local oldPos = Vector3.new()
+
+        while true do
+            task.wait()
+
+            if not getgenv().DetectSpam then
+                break
+            end
+
+            local playerRP = getPlayerCharacter()
+            local ball = balls:FindFirstChildOfClass("Part")
+
+            if playerRP and ball then
+                ballDistance = (playerRP.Position - ball.Position).Magnitude
+                ballSpeed = (oldPos - ball.Position).Magnitude
+
+                if tick() - oldTick >= 1 / 60 then
+                    oldTick = tick()
+                    oldPos = ball.Position
+                end
+            end
+        end
+    end)
+
+    while getgenv().DetectSpam do
+        task.wait()
+        local ball = balls:FindFirstChildOfClass("Part")
+        local playerRP = getPlayerCharacter()
+        local proxyPlayer = getClosestPlayer()
+
+        if not ball then
+            getgenv().SpamClickA = false
+        end
+
+        if ball and ball:GetAttribute("realBall") and oldBall ~= ball then
+            ball.Changed:Connect(function()
+                task.wait()
+
+                local ball = balls:FindFirstChildOfClass("Part")
+
+                if ball then
+                    targetPlayer = ball:GetAttribute("target")
+
+                    if proxyPlayer and targetPlayer == proxyPlayer.Name or getPlayer() and targetPlayer == getPlayer().Name then
+                        spamNum = spamNum + 1
+                    else
+                        spamNum = 0
+                    end
+
+                    local args = proxyPlayer and proxyPlayer:FindFirstChild("HumanoidRootPart")
+                    local HL1 = proxyPlayer and proxyPlayer:FindFirstChild("Highlight")
+                    local HL2 = getPlayerCharacter() and getPlayerCharacter():FindFirstChild("Highlight")
+
+                    if playerRP and HL1 and args or playerRP and HL2 and args then
+                        local distancePlayer = (proxyPlayer.HumanoidRootPart.Position - playerRP.Position).Magnitude
+                        local distanceBall = (ball.Position - playerRP.Position).Magnitude
+
+                        local spamThreshold = countAlivePlayers() < 3 and SPAM_CLICK_THRESHOLD_LOW_PLAYERS or SPAM_CLICK_THRESHOLD_HIGH_PLAYERS
+
+                        if distancePlayer <= DISTANCE_THRESHOLD and distanceBall <= BALL_DISTANCE_THRESHOLD and spamNum >= spamThreshold then
+                            getgenv().SpamClickA = true
+                        else
+                            getgenv().SpamClickA = false
+                        end
+                    else
+                        getgenv().SpamClickA = false
+                    end
+                end
+            end)
+            oldBall = ball
+        end
+    end
+end
+
+getgenv().DetectSpam = true
+detectSpam()
