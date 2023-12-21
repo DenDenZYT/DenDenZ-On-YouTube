@@ -3,6 +3,12 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function darkraiv2()
+ loadstring(game:HttpGet("https://pastefy.app/y3MGGd9n/raw"))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
 function berserk2()
  loadstring(game:HttpGet("https://raw.githubusercontent.com/samirayt/Whitelist/main/Whitelist%20Pago"))()
  wait(3)
@@ -197,6 +203,13 @@ BBTab:AddButton({
  Name = "Berserk",
  Callback = function()
         berserk2()
+   end
+})
+
+BBTab:AddButton({
+ Name = "Darkrai V2",
+ Callback = function()
+        darkraiv2()
    end
 })
 
