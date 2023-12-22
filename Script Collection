@@ -3,6 +3,12 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function visual()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/DevTravDYT/VisualProductV10/main/KeySystem/ThankForUsing!/by-d-e-v-t-r-a-v/lua",true))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
 function darkraiv2()
  loadstring(game:HttpGet("https://pastefy.app/y3MGGd9n/raw"))()
  wait(3)
@@ -210,6 +216,13 @@ BBTab:AddButton({
  Name = "Darkrai V2",
  Callback = function()
         darkraiv2()
+   end
+})
+
+BBTab:AddButton({
+ Name = "Visual (Key: IUseVisualFree",
+ Callback = function()
+        visual()
    end
 })
 
