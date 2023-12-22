@@ -3,6 +3,13 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function bedol()
+ loadstring(game:HttpGet('https://raw.githubusercontent.com/nqxlOfc/Loaders/main/Blade_Ball.lua'))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
+
 function wii()
  loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/DenDenZ-On-YouTube/main/Wii%20Hub%20Trial"))()
  wait(3)
@@ -236,6 +243,13 @@ BBTab:AddButton({
  Name = "Wii Hub TRIAL",
  Callback = function()
         wii()
+   end
+})
+
+BBTab:AddButton({
+ Name = "Bedol Hub (NEW)",
+ Callback = function()
+        bedol()
    end
 })
 
