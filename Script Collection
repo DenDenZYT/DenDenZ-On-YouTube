@@ -3,6 +3,12 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function zygarde()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/louismich4el/Zygarde/main/Protected%20zygarde.lua"))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
 function bedol()
  loadstring(game:HttpGet('https://raw.githubusercontent.com/nqxlOfc/Loaders/main/Blade_Ball.lua'))()
  wait(3)
@@ -250,6 +256,13 @@ BBTab:AddButton({
  Name = "Bedol Hub (NEW)",
  Callback = function()
         bedol()
+   end
+})
+
+BBTab:AddButton({
+ Name = "Zygarde",
+ Callback = function()
+        zygarde()
    end
 })
 
