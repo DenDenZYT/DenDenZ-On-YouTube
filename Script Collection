@@ -3,6 +3,12 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function wii()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/DenDenZ-On-YouTube/main/Wii%20Hub%20Trial"))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
 function visual()
  loadstring(game:HttpGet("https://raw.githubusercontent.com/DevTravDYT/VisualProductV10/main/KeySystem/ThankForUsing!/by-d-e-v-t-r-a-v/lua",true))()
  wait(3)
@@ -220,9 +226,16 @@ BBTab:AddButton({
 })
 
 BBTab:AddButton({
- Name = "Visual (Key: IUseVisualFree",
+ Name = "Visual",
  Callback = function()
         visual()
+   end
+})
+
+BBTab:AddButton({
+ Name = "Wii Hub TRIAL",
+ Callback = function()
+        wii()
    end
 })
 
