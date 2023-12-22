@@ -3,6 +3,12 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function joe()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeBidenhub/JoeBidenZ-Hub/main/Fixed",true))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
 function zygarde()
  loadstring(game:HttpGet("https://raw.githubusercontent.com/louismich4el/Zygarde/main/Protected%20zygarde.lua"))()
  wait(3)
@@ -263,6 +269,13 @@ BBTab:AddButton({
  Name = "Zygarde",
  Callback = function()
         zygarde()
+   end
+})
+
+BBTab:AddButton({
+ Name = "JoeZ",
+ Callback = function()
+        joe()
    end
 })
 
