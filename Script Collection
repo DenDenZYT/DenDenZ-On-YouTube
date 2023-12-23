@@ -3,6 +3,12 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function nexus()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/kyleniko/Nexus/main/Blade%20Ball",true))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
 function projecty()
  loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/DenDenZ-On-YouTube/main/Project%20Y%20DATABASE"))()
  wait(3)
@@ -289,6 +295,13 @@ BBTab:AddButton({
  Name = "Project Y",
  Callback = function()
         projecty()
+   end
+})
+
+BBTab:AddButton({
+ Name = "Nexus",
+ Callback = function()
+        nexus()
    end
 })
 
