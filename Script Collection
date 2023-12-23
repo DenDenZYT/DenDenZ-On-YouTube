@@ -3,6 +3,12 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function freya()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/Athenamikaela/Freya-hub-version-v2/main/Freya%20hub%20by%20lenny",true))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
 function nexus()
  loadstring(game:HttpGet("https://raw.githubusercontent.com/kyleniko/Nexus/main/Blade%20Ball",true))()
  wait(3)
@@ -302,6 +308,13 @@ BBTab:AddButton({
  Name = "Nexus",
  Callback = function()
         nexus()
+   end
+})
+
+BBTab:AddButton({
+ Name = "Freya",
+ Callback = function()
+        freya()
    end
 })
 
