@@ -3,6 +3,12 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function prolexv3()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/Beluga-Ontop/Free-Prolex-V3/main/Free%20Version%20Prolex%20V3"))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
 function zzz()
  loadstring(game:HttpGet("https://raw.githubusercontent.com/ZzzScript/NewUpdateZzzHubScript/main/BladeBallScript"))()
  wait(3)
@@ -341,6 +347,13 @@ BBTab:AddButton({
  Name = "Zzz Hub",
  Callback = function()
         zzz()
+   end
+})
+
+BBTab:AddButton({
+ Name = "Prolex V3",
+ Callback = function()
+        prolexv3()
    end
 })
 
