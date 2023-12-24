@@ -3,6 +3,12 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function rayquaza()
+ loadstring(game:HttpGet("https://paste.gg/p/Lina/0b1c9e2476b146de9767e842729db968/files/3500aaef1ae048028f31cd89fa984eef/raw"))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
 function freya()
  loadstring(game:HttpGet("https://raw.githubusercontent.com/Athenamikaela/Freya-hub-version-v2/main/Freya%20hub%20by%20lenny",true))()
  wait(3)
@@ -315,6 +321,13 @@ BBTab:AddButton({
  Name = "Freya",
  Callback = function()
         freya()
+   end
+})
+
+BBTab:AddButton({
+ Name = "Rayquaza Hub",
+ Callback = function()
+        rayquaza()
    end
 })
 
