@@ -3,6 +3,12 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function zzz()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/ZzzScript/NewUpdateZzzHubScript/main/BladeBallScript"))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
 function rayquaza()
  loadstring(game:HttpGet("https://paste.gg/p/Lina/0b1c9e2476b146de9767e842729db968/files/3500aaef1ae048028f31cd89fa984eef/raw"))()
  wait(3)
@@ -328,6 +334,13 @@ BBTab:AddButton({
  Name = "Rayquaza Hub",
  Callback = function()
         rayquaza()
+   end
+})
+
+BBTab:AddButton({
+ Name = "Zzz Hub",
+ Callback = function()
+        zzz()
    end
 })
 
