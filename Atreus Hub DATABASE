@@ -19,7 +19,7 @@ local MiscSection = MiscTab:CreateSection("Misc")
 MainSection:CreateToggle(
     "Auto Parry V1",
     function(boolean)
-        loadstring(game:HttpGet("https://pastefy.app/ipe95AVX/raw"))(
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/DenDenZ-On-YouTube/main/AP38"))(
 
         )
     end
@@ -28,14 +28,14 @@ MainSection:CreateToggle(
 MainSection:CreateToggle(
     "Auto Parry V2",
     function(boolean)
-        loadstring(game:HttpGet("https://pastefy.app/FPGraecb/raw"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/DenDenZ-On-YouTube/main/AP36"))()
     end
 )
 
 MainSection:CreateToggle(
     "Auto Parry V3",
     function(boolean)
-        loadstring(game:HttpGet("https://pastefy.app/dzSarBGq/raw"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/DenDenZ-On-YouTube/main/AP35"))()
  end
 )
 
