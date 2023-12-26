@@ -3,6 +3,12 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function vercel()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/AC447724/Blade-Ball/main/c5xkvercelv5.lua.txt"))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
 function newnoxine()
  loadstring(game:HttpGet("https://raw.githubusercontent.com/fbisghosts/NOX/main/Noxine.lua"))()
  wait(3)
@@ -367,6 +373,13 @@ BBTab:AddButton({
  Name = "New Noxine",
  Callback = function()
         nesnoxine()
+   end
+})
+
+BBTab:AddButton({
+ Name = "Vercel V5",
+ Callback = function()
+        vercel()
    end
 })
 
