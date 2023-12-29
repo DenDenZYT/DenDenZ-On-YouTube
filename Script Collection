@@ -3,6 +3,18 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function zen()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/ZenHubTheBest/Main/main/Loader", true))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
+function zekrom()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/ahmadsgamer2/Zekrom-Hub-X/main/Zekrom-Hub-X-exe", true))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
 function optimus()
  loadstring(game:HttpGet("https://pastefy.app/RqT6W8op/raw"))()
  wait(3)
@@ -207,6 +219,13 @@ local BBTab = Window:MakeTab({
 -- Buttons Start
 
 HomeTab:AddButton({
+ Name = "Zekrom (Blox Fruits & PS99)",
+ Callback = function()
+        zekrom()
+   end
+})
+
+HomeTab:AddButton({
 	Name = "Hyper Hub",
 	Callback = function()
       		hyper()
@@ -218,6 +237,13 @@ HomeTab:AddButton({
 	Callback = function()
       		tuff()
   	end    
+})
+
+BFTab:AddButton({
+ Name = "Zen Hub",
+ Callback = function()
+        zen()
+   end
 })
 
 BFTab:AddButton({
