@@ -3,6 +3,12 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function ffbf()
+ loadstring(game:HttpGet"https://raw.githubusercontent.com/PNguyen0199/Script/main/Fai-Fao-Ver2.lua")()
+ wait(3)
+ OrionLib:Destroy()
+end
+
 function zen()
  loadstring(game:HttpGet("https://raw.githubusercontent.com/ZenHubTheBest/Main/main/Loader", true))()
  wait(3)
@@ -432,6 +438,13 @@ BBTab:AddButton({
  Name = "Optimus Hub",
  Callback = function()
         optimus()
+   end
+})
+
+BFTab:AddButton({
+ Name = "Fai Fao",
+ Callback = function()
+        ffbf()
    end
 })
 
