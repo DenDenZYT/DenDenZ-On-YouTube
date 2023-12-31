@@ -4,7 +4,7 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 -- functions start
 
 function viki()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/Main/main/Vikichard_Beta_DATABASE%20(1).txt"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/Main/main/Vikichard%20Beta%20DATABASE"))()
  wait(3)
  OrionLib:Destroy()
 end
