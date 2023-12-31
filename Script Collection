@@ -3,6 +3,12 @@ local Window = OrionLib:MakeWindow({Name = "DenZ", HidePremium = false, SaveConf
 
 -- functions start
 
+function viki()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/DenDenZYT/Main/main/Vikichard_Beta_DATABASE%20(1).txt"))()
+ wait(3)
+ OrionLib:Destroy()
+end
+
 function ffbf()
  loadstring(game:HttpGet"https://raw.githubusercontent.com/PNguyen0199/Script/main/Fai-Fao-Ver2.lua")()
  wait(3)
@@ -445,6 +451,13 @@ BFTab:AddButton({
  Name = "Fai Fao",
  Callback = function()
         ffbf()
+   end
+})
+
+BBTab:AddButton({
+ Name = "Vikichard's Beta",
+ Callback = function()
+        viki()
    end
 })
 
