@@ -1,0 +1,9 @@
+local map = game.Workspace.Map:GetChildren()[1]
+        local sock = map.Sock
+        local plr = game.Players.LocalPlayer
+        local char = plr.Character or plr.CharacterAdded:Wait()
+        if sock and char and char.HumanoidRootPart then
+            sock.CFrame = char.HumanoidRootPart.CFrame
+        end 
+    end
+end)
