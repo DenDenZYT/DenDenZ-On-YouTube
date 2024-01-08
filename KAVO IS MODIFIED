@@ -125,17 +125,7 @@ local themeStyles = {
         Header = Color3.fromRGB(0, 128, 0), -- Forest green for the header
         TextColor = Color3.fromRGB(255, 255, 255), -- White text
         ElementColor = Color3.fromRGB(0, 128, 0) -- Matching color for elements
-    },
-    NeutralRainbowColors = {
-     Color3.fromRGB(255, 0, 0), -- Red
-    Color3.fromRGB(255, 140, 0), -- Orange
-    Color3.fromRGB(255, 255, 0), -- Yellow
-    Color3.fromRGB(0, 255, 0), -- Green
-    Color3.fromRGB(0, 0, 255), -- Blue
-    Color3.fromRGB(75, 0, 130), -- Indigo
-    Color3.fromRGB(148, 0, 211) -- Violet
     }
- 
 }
 local oldTheme = ""
 
