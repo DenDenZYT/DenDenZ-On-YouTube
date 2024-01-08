@@ -127,7 +127,7 @@ local themeStyles = {
         ElementColor = Color3.fromRGB(0, 128, 0) -- Matching color for elements
     },
     NeutralRainbowColors = {
-    Color3.fromRGB(255, 0, 0), -- Red
+     Color3.fromRGB(255, 0, 0), -- Red
     Color3.fromRGB(255, 140, 0), -- Orange
     Color3.fromRGB(255, 255, 0), -- Yellow
     Color3.fromRGB(0, 255, 0), -- Green
