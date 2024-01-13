@@ -1,0 +1,13 @@
+local plr = game.Players.LocalPlayer
+local Balls = workspace:WaitForChild("Balls", 9e9)
+
+while true do
+    local ball = Balls:FindFirstChildOfClass("Part")
+    local char = plr.Character
+
+    if ball and char then
+        char:SetPrimaryPartCFrame(ball.CFrame)
+    end
+
+    wait(0.001)  -- Adjust the delay as needed
+end
