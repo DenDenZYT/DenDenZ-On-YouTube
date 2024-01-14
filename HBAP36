@@ -3,7 +3,7 @@ local players = game:GetService("Players")
 local replicatedStorage = game:GetService("ReplicatedStorage")
 local heartbeatConnection
 
-local function startAutoParry()
+local function startAutoParry36()
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
     local replicatedStorage = game:GetService("ReplicatedStorage")
@@ -85,4 +85,4 @@ local function startAutoParry()
 end
 
 -- Call the function to start auto parry
-startAutoParry()
+startAutoParry36()
